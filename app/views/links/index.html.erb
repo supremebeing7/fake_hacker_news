@@ -4,7 +4,7 @@
   <ol>
   <% @links.order("links.vote_count DESC").each do |link| %>
     <li>
-      <%= form_for(link, id: "upvote") do |f| %>
+      <%= form_for link, html: { id: "upvote" } do |f| %>
         <%= f.hidden_field :vote_count, value: (link.vote_count + 1) %>
         <%= f.submit("\u25B2",  class: "text-button" ) %>
       <% end %>

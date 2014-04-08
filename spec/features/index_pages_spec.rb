@@ -36,7 +36,7 @@ describe 'when a visitor goes to the homepage' do
       test_link = FactoryGirl.create :link
       visit '/'
       click_button "\u25B2"
-      test_link.vote_count.should eq 2
+      page.should have_content "2 points"
     end
   end
 end
