@@ -1,8 +1,8 @@
-<%= content_for(:title, "Home") %>
+<%= content_for(:title, "Newest Links") %>
 
 <div class="main">
   <ol>
-  <% @links.order("links.vote_count DESC").each do |link| %>
+  <% @links.order("links.created_at DESC").each do |link| %>
     <li>
       <%= form_for link, html: { id: "upvote" } do |f| %>
         <%= f.hidden_field :vote_count, value: (link.vote_count + 1) %>

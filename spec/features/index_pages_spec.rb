@@ -19,6 +19,10 @@ describe 'when a visitor goes to the homepage' do
     end
     it 'goes to the "New link" page when "new" is clicked' do
       click_link "new"
+       expect(page).to have_title 'Newest Links | HN Clone'
+    end
+    it 'goes to the "New link" page when "submit" is clicked' do
+      click_link "submit"
        expect(page).to have_title 'New Link | HN Clone'
     end
   end
