@@ -1,5 +1,6 @@
 
 <%= form_for(@link) do |f| %>
+  <%= f.hidden_field :vote_count, value: 1 %>
   <div class="row">
     <div class='form-group small-5 columns'>
       <%= f.label :description %>

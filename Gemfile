@@ -11,6 +11,7 @@ gem 'foundation-rails'
 gem 'capybara'
 gem 'factory_girl_rails'
 gem 'githubrepo'
+gem 'pry'
 
 
 group :development do

@@ -30,5 +30,14 @@ describe 'when a visitor goes to the homepage' do
       page.should have_content test_link.description
     end
   end
+
+  context 'the page changes when upvote is clicked' do
+    it 'it adds a vote to a link when upvote symbol is clicked' do
+      test_link = FactoryGirl.create :link
+      visit '/'
+      click_button "\u25B2"
+      test_link.vote_count.should eq 2
+    end
+  end
 end
 

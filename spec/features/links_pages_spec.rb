@@ -10,6 +10,9 @@ describe Link do
       fill_in 'User name', with: link.user_name
       click_button 'Create Link'
       page.should have_content link.description
+      page.should have_content link.url
+      page.should have_content link.vote_count
+      page.should have_content link.user_name
     end
   end
 end

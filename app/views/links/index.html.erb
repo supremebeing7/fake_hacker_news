@@ -2,9 +2,12 @@
 
 <div class="main">
   <ol>
-  <% @links.each_with_index do |link, index| %>
+  <% @links.order("links.vote_count DESC").each do |link| %>
     <li>
-      <%= link_to "\u25B2", links_path, class: "gray" %>
+      <%= form_for(link, id: "upvote") do |f| %>
+        <%= f.hidden_field :vote_count, value: (link.vote_count + 1) %>
+        <%= f.submit("\u25B2",  class: "text-button" ) %>
+      <% end %>
       <%= link_to link.description, link_path(link), class: "black" %>
       <span class="gray">(<%= link.url %>)</span>
       <br/>

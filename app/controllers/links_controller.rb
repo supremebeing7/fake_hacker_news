@@ -17,10 +17,18 @@ class LinksController < ApplicationController
       render 'new'
     end
   end
+  def update
+    @link = Link.find(params[:id])
+    @link.update(link_params)
+    # binding.pry
+    redirect_to root_path
+  end
 
   private
 
   def link_params
     params.require(:link).permit(:description, :url, :slug, :vote_count, :user_name)
   end
+
+
 end
