@@ -1,0 +1,9 @@
+<%= content_for(:title, "Home | HN Clone") %>
+
+<div class="main">
+  <ol>
+  <% @links.each_with_index do |link, index| %>
+    <li><%= link_to "\u25B2", links_path, class: "gray" %> <%= link_to link.description, link_path(link), class: "black" %></li>
+  <% end %>
+  </ol>
+</div>
