@@ -1,0 +1,22 @@
+
+<%= form_for(@link) do |f| %>
+  <div class="row">
+    <div class='form-group small-5 columns'>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <div class='form-group small-5 columns'>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+    <div class="small-2"></div>
+  </div>
+  <div class="row">
+    <div class='form-group small-5 columns'>
+      <%= f.label :user_name %>
+      <%= f.text_field :user_name %>
+    </div>
+  </div>
+
+  <%= f.submit({ :class => 'button tiny'}) %>
+<% end %>

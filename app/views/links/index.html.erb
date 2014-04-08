@@ -1,9 +1,17 @@
-<%= content_for(:title, "Home | HN Clone") %>
+<%= content_for(:title, "Home") %>
 
 <div class="main">
   <ol>
   <% @links.each_with_index do |link, index| %>
-    <li><%= link_to "\u25B2", links_path, class: "gray" %> <%= link_to link.description, link_path(link), class: "black" %></li>
+    <li>
+      <%= link_to "\u25B2", links_path, class: "gray" %>
+      <%= link_to link.description, link_path(link), class: "black" %>
+      <span class="gray">(<%= link.url %>)</span>
+      <br/>
+      <%= link.vote_count %> points
+      by <%= link.user_name %>
+      <%= time_ago_in_words(link.created_at) %> ago
+    </li>
   <% end %>
   </ol>
 </div>

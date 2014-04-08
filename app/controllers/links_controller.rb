@@ -11,7 +11,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     if @link.save
       params[:link][:slug] = ("#{@link.id}-#{@link.description}").parameterize
-      @link.update(params[:link])
+      @link.update(link_params)
       redirect_to links_path
     else
       render 'new'
@@ -21,6 +21,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:description, :url, :slug, :vote_count, :user_id)
+    params.require(:link).permit(:description, :url, :slug, :vote_count, :user_name)
   end
 end

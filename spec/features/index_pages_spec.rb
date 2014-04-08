@@ -1,25 +1,23 @@
 require 'spec_helper'
 
-describe 'when a visitor visits goes to the homepage' do
-  context 'they page they see should have header with links' do
+describe 'when a visitor goes to the homepage' do
+  before { visit root_path }
+
+  context 'the page they see should have header with links' do
     it 'has "Home | HN Clone" as the title' do
-      visit '/'
       page.should have_title "Home | HN Clone"
     end
   end
 
   context 'the page should have links' do
-    it ' has link "Fake Hacker News that take user to homepage' do
-      visit '/'
+    it 'has link "Fake Hacker News" that take user to homepage' do
       page.should have_link "Fake Hacker News"
     end
-    it 'the "Fake Hacker News" link returns to homepage' do
-      visit '/'
+    it 'returns to the homepage when "Fake Hacker News" is clicked' do
       click_link "Fake Hacker News"
        expect(page).to have_title 'Home | HN Clone'
     end
     it 'goes to the "New link" page when "new" is clicked' do
-      visit '/'
       click_link "new"
        expect(page).to have_title 'New Link | HN Clone'
     end

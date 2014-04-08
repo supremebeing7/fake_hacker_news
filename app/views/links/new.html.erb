@@ -1,1 +1,11 @@
-<%= content_for(:title, "New Link | HN Clone") %>
+<%= content_for(:title, "New Link") %>
+
+
+
+<div class="row">
+    <%= render 'layouts/errors', { object: @link } %>
+
+    <h3>Create New Link:</h3>
+
+    <%= render 'form' %>
+  </div>
