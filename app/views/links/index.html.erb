@@ -8,7 +8,7 @@
         <%= f.hidden_field :vote_count, value: (link.vote_count + 1) %>
         <%= f.submit("\u25B2",  class: "text-button" ) %>
       <% end %>
-      <%= link_to link.description, link_path(link), class: "black" %>
+      <%= link_to link.description, link.url, class: "black" %>
       <span class="gray">( <%= link.shorten_url %> )</span>
       <br/>
       <%= link.vote_count %> points

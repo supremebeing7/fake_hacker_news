@@ -7,4 +7,5 @@ describe Link do
       testlink.shorten_url.should eq "example.org"
     end
   end
+  it { should have_many :comments }
 end

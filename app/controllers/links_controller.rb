@@ -2,6 +2,9 @@ class LinksController < ApplicationController
   def index
     @links = Link.all
   end
+  def show
+    @link = Link.find_by(slug: params[:id])
+  end
 
   def new
     @link = Link.new
@@ -10,8 +13,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     if @link.save
-      params[:link][:slug] = ("#{@link.id}-#{@link.description}").parameterize
-      @link.update(link_params)
+      @link.update(slug: ("#{@link.id}-#{@link.description}").parameterize)
       redirect_to links_path
     else
       render 'new'
